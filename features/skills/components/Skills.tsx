@@ -22,7 +22,7 @@ const skills = [
 	},
 	{
 		label: 'ReactJs',
-		url: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5agxXUSsI3J6nJYssKdxaZEO5xpTCsh4P6U4qKGXH2w&s=10'
+		url: 'https://images.icon-icons.com/2415/PNG/512/react_original_wordmark_logo_icon_146375.png'
 	},
 	{
 		label: 'NextJs',
@@ -34,18 +34,19 @@ export function Skills() {
 	return (
 		<section id="skills">
 			<Heading title="Skills" />
-			<div className="grid grid-cols-2 mx-10 md:grid-cols-4 lg:grid-cols-5 md:gap-5 gap-2">
+			<div className="flex justify-center">
+			<div className="grid grid-cols-2 md:grid-cols-4 gap-5">
 				{
 					skills.map(
 						(it, idx) => <div
-							className="flex justify-around"
+							className="flex"
 							key={idx}
 						>
 							<motion.div
 								initial={{ opacity: 0, x: -5 }}
 								animate={{ opacity: 1, x: 0 }}
 								transition={{
-									opacity: { duration: 2 },
+									opacity: { duration: 2 }, 
 								}}
 								whileHover={{ scale: 1.1 }}
 							>
@@ -55,7 +56,7 @@ export function Skills() {
 									<CardContent
 										className="min-w-40 min-h-40"
 									>
-										<img src={it.url}  />
+										<img src={it.url} width="208" height="208" />
 									</CardContent>
 									<CardFooter>
 										{it.label}
@@ -64,6 +65,7 @@ export function Skills() {
 							</motion.div>
 						</div>
 					)}
+			</div>
 			</div>
 
 		</section>

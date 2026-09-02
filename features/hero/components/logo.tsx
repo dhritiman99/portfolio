@@ -1,6 +1,6 @@
 export default function Logo() {
     return <div
-        className="w-60 md:max-w-90 mx-auto"
+        className="w-60 md:max-w-90 mx-auto grid"
     >
         <img
             className="rounded-full"

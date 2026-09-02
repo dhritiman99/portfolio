@@ -1,8 +1,11 @@
-import { cn } from "@/lib/utils";
+
 import { Button } from "@/components/ui/button";
 import { File, Phone } from "lucide-react";
-import { motion } from "framer-motion"
 import Logo from "./logo";
+import { Socials } from "./Socials";
+import { Description } from "./Desc";
+
+
 
 export function HeroSection() {
 	return (
@@ -34,43 +37,31 @@ export function HeroSection() {
 					<div className="absolute inset-y-0 right-8 w-px bg-linear-to-b from-transparent via-border/50 to-border/50 md:right-12" />
 				</div>
 
-				<div className="md:flex  md:flex-row-reverse  md:gap-15 justify-center items-center">
-					<Logo/>
-					<motion.div
-						initial={{
-							translateX:"500px"
-						}}
-						animate={{
-							translateX:"0px"
-						}}
-					>
-						<h1
-							className={cn(
-								"fade-in slide-in-from-bottom-10 animate-in text-balance fill-mode-backwards text-center text-2xl tracking-tight delay-100 duration-500 ease-out md:text-4xl lg:text-5xl",
-								"text-shadow-[0_0px_50px_theme(--color-foreground/.2)]"
-							)}
-						>
-							Hi, I am Dhritiman <br /> A Full Stack Developer
-
-						</h1>
-						<p className="fade-in slide-in-from-bottom-10 mx-auto max-w-md animate-in fill-mode-backwards text-center text-base text-foreground/80 tracking-wider delay-200 duration-500 ease-out sm:text-lg md:text-xl">
-							Turning ideas into elegant digital products.
-						</p>
-					</motion.div>
+				<div className="md:flex md:flex-row-reverse basis-[20%] md:gap-15 gap-5 justify-center items-center">
+					<Logo />
+					<Description/>
 				</div>
-				<div className="fade-in slide-in-from-bottom-10 flex flex-col animate-in md:flex-row flex-wrap items-center justify-center gap-5 md:gap-10 fill-mode-backwards pt-2 delay-300 duration-500 ease-out">
-					<Button className="rounded-full p-5" size="lg" variant="secondary">
-						<File data-icon="inline-start" />
-						Download CV
-					</Button>
-					<a href="#contact">
-						<Button className="rounded-full p-5" size="lg">
-							Contact
-							<Phone data-icon="inline-end" />
+				<div className="fade-in slide-in-from-bottom-10 flex animate-in flex-col flex-wrap items-center justify-center gap-5 md:gap-10 fill-mode-backwards pt-2 delay-300 duration-500 ease-out">
+					<div className="flex gap-5">
+						<Button className="rounded-full p-5" size="lg" variant="secondary">
+							<File data-icon="inline-start" />
+							Download CV
 						</Button>
-					</a>
+						<a href="#contact">
+							<Button className="rounded-full p-5" size="lg">
+								Contact
+								<Phone data-icon="inline-end" />
+							</Button>
+						</a>
+					</div>
+					<Socials/>
 				</div>
+
 			</div>
 		</section>
 	);
 }
+
+
+
+
