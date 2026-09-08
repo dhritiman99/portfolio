@@ -35,37 +35,17 @@ export function Skills() {
 		<section id="skills">
 			<Heading title="Skills" />
 			<div className="flex justify-center">
-			<div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-				{
-					skills.map(
-						(it, idx) => <div
-							className="flex"
-							key={idx}
-						>
-							<motion.div
-								initial={{ opacity: 0, x: -5 }}
-								animate={{ opacity: 1, x: 0 }}
-								transition={{
-									opacity: { duration: 2 }, 
-								}}
-								whileHover={{ scale: 1.1 }}
+				<div className="grid grid-cols-2 md:grid-cols-4 gap-5 px-4">
+					{
+						skills.map(
+							(it, idx) => <div
+								className="flex"
+								key={idx}
 							>
-								<Card
-									className="flex"
-								>
-									<CardContent
-										className="min-w-40 min-h-40"
-									>
-										<img src={it.url} width="208" height="208" />
-									</CardContent>
-									<CardFooter>
-										{it.label}
-									</CardFooter>
-								</Card>
-							</motion.div>
-						</div>
-					)}
-			</div>
+								<SkillCard it={it} />
+							</div>
+						)}
+				</div>
 			</div>
 
 		</section>
@@ -73,3 +53,33 @@ export function Skills() {
 }
 
 
+type TSkill = {
+	label: string,
+	url: string
+}
+
+
+function SkillCard({ it }: { it: TSkill }) {
+	return <motion.div
+		initial={{ opacity: 0, x: -5 }}
+		animate={{ opacity: 1, x: 0 }}
+		transition={{
+			opacity: { duration: 2 },
+		}}
+		whileHover={{ rotateY: -30 }}
+		className="perspective-normal"
+	>
+		<Card
+			className="flex"
+		>
+			<CardContent
+				className="min-w-40 min-h-40"
+			>
+				<img src={it.url} width="208" height="208" />
+			</CardContent>
+			<CardFooter>
+				{it.label}
+			</CardFooter>
+		</Card>
+	</motion.div>;
+}

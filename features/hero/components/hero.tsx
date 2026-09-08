@@ -4,7 +4,7 @@ import { File, Phone } from "lucide-react";
 import Logo from "./logo";
 import { Socials } from "./Socials";
 import { Description } from "./Desc";
-
+import { motion } from "framer-motion"
 
 
 export function HeroSection() {
@@ -37,24 +37,60 @@ export function HeroSection() {
 					<div className="absolute inset-y-0 right-8 w-px bg-linear-to-b from-transparent via-border/50 to-border/50 md:right-12" />
 				</div>
 
-				<div className="md:flex md:flex-row-reverse basis-[20%] md:gap-15 gap-5 justify-center items-center">
+				<div className="grid grid-cols-1 md:grid-cols-[20%_60%] gap-5 md:gap-0 justify-between items-center">
 					<Logo />
-					<Description/>
+					<Description />
 				</div>
 				<div className="fade-in slide-in-from-bottom-10 flex animate-in flex-col flex-wrap items-center justify-center gap-5 md:gap-10 fill-mode-backwards pt-2 delay-300 duration-500 ease-out">
 					<div className="flex gap-5">
-						<Button className="rounded-full p-5" size="lg" variant="secondary">
-							<File data-icon="inline-start" />
-							Download CV
-						</Button>
-						<a href="#contact">
-							<Button className="rounded-full p-5" size="lg">
-								Contact
-								<Phone data-icon="inline-end" />
+						<motion.div
+							initial={{
+								translateX: "-1000px"
+							}}
+							animate={{
+								translateX: "0px"
+							}}
+							transition={{
+								duration: 0.8
+							}}
+						>
+							<Button className="rounded-full p-5" size="lg" variant="secondary">
+								<File data-icon="inline-start" />
+								Download CV
 							</Button>
-						</a>
+						</motion.div>
+						<motion.div
+							initial={{
+								translateX: "1000px"
+							}}
+							animate={{
+								translateX: "0px"
+							}}
+							transition={{
+								duration: 0.8
+							}}
+						>
+							<a href="#contact">
+								<Button className="rounded-full p-5" size="lg">
+									Contact
+									<Phone data-icon="inline-end" />
+								</Button>
+							</a>
+						</motion.div>
 					</div>
-					<Socials/>
+					<motion.div
+						initial={{
+							translateY: "2000px"
+						}}
+						animate={{
+							translateY: "0px"
+						}}
+						transition={{
+							duration: 0.8
+						}}
+					>
+						<Socials />
+					</motion.div>
 				</div>
 
 			</div>
