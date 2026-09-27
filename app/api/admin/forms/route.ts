@@ -1,4 +1,4 @@
-import { getForms } from "@/features/contact/forms/actions/formActions";
+import { getForms } from "@/features/contact/actions/formActions";
 
 export async function GET() {
     try {
@@ -11,5 +11,4 @@ export async function GET() {
             error: error
         })
     }
-
 }
