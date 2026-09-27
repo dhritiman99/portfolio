@@ -9,12 +9,11 @@ import { navLinks } from "@/features/layout/components/header";
 
 export function MobileNav() {
 	const [open, setOpen] = React.useState(false);
-
 	return (
 		<div className="md:hidden flex gap-1">
 			<div>
-								<ThemeButton />
-							</div>
+				<ThemeButton />
+			</div>
 			<Button
 				aria-controls="mobile-menu"
 				aria-expanded={open}
@@ -31,7 +30,7 @@ export function MobileNav() {
 				)}
 			</Button>
 			{open && (
-				<Portal className="top-14" id="mobile-menu">
+				<Portal className="top-18" id="mobile-menu">
 					<PortalBackdrop />
 					<div
 						className={cn(

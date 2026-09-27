@@ -14,7 +14,7 @@ export function Description() {
 	>
 		<h1
 			className={cn(
-				"fade-in slide-in-from-bottom-10 animate-in text-balance fill-mode-backwards text-center text-4xl tracking-tight delay-100 duration-500 ease-out md:text-5xl",
+				"fade-in slide-in-from-bottom-10 animate-in text-balance fill-mode-backwards  text-4xl tracking-tight delay-100 duration-500 ease-out md:text-5xl",
 				"text-shadow-[0_0px_50px_theme(--color-foreground/.2)]"
 			)
 			
@@ -26,8 +26,8 @@ export function Description() {
 			<SubHeading />
 
 		</h1>
-		<div className="mx-2 px-2">
-			<p className="flex fade-in flex-wrap slide-in-from-bottom-10 mx-auto max-w-md animate-in fill-mode-backwards text-center text-base text-foreground/80 tracking-wider delay-200 duration-500 ease-out sm:text-lg md:text-xl">
+		<div className="text-wrap">
+			<p className="flex fade-in flex-wrap slide-in-from-bottom-10 max-w-md animate-in fill-mode-backwards text-base text-foreground/80 tracking-wider delay-200 duration-500 ease-out sm:text-lg md:text-xl">
 				Turning ideas into elegant digital products.
 			</p>
 		</div>
@@ -35,7 +35,7 @@ export function Description() {
 }
 
 function SubHeading() {
-	return <div className="flex gap-2 mx-5 justify-center text-3xl md:text-4xl">
+	return <div className="flex gap-2   text-3xl md:text-4xl">
 		<span>a</span>
 		<Typewriter
 			options={{

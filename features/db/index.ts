@@ -6,5 +6,6 @@ export async function connectDB(){
         console.log("DB Connected !")
     } catch (error) {
         console.log("DB Error:",error)
+        throw new Error('Error connecting to DB') 
     }
 }

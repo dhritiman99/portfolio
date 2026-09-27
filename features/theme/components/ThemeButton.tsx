@@ -19,8 +19,7 @@ export default function ThemeButton() {
       }
       }
     >
-      {theme === "dark" && <Moon/>}
-      {theme === "light" && <Sun/>}
+      {theme === "dark"? <Moon/>:<Sun/>}
     </Button>
   )
 }

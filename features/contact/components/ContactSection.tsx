@@ -10,8 +10,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
 import { Field } from "@base-ui/react"
 import { Input } from "@/components/ui/input"
-import { stat } from "fs"
-import { useSubmitForm } from "../forms/hooks/form"
+import { useSubmitForm } from "../hooks/form"
 
 
 export default function ContactSection() {
@@ -28,27 +27,48 @@ export default function ContactSection() {
         const desc = formdata.get("desc")?.toString() ?? "";
         if (!email || !subject || !desc) {
             setStatus({ success: false, message: "One or More fields not specified !" });
-            return;
+            setTimeout(() => {
+                setStatus({
+                    success: false,
+                    message: ""
+                })
+
+            }, 2000);
+            return
         }
         submitForm.mutate({
             email,
             subject,
             desc,
-        });
+        },
+            {
+                onSuccess: () => {
+                    setStatus({
+                        success: true,
+                        message: "message sent successfully!"
+                    })
+                },
+                onError: () => {
+                    setStatus({
+                        success: false,
+                        message: "Error Occurred!"
+                    })
 
-        if(submitForm.isError) setStatus({
-            success: false,
-            message: 'Error Occured !'
-        })
-        setStatus({
-            success: true,
-            message: 'Form Submitted Successfully!'
-        })
+                }
+            }
+        );
+        setTimeout(() => {
+            setStatus({
+                success: false,
+                message: ""
+            })
+        }, 2000);
+
     }
 
     return <section
         id="contact"
-        className="px-10 pb-20"
+        className="px-10 pb-20 min-h-screen"
     >
         <AnimatePresence>
             {(status.message.trim().length > 0) && <StatusMessage status={status} />}
@@ -62,7 +82,7 @@ export default function ContactSection() {
 
 function ContactForm({ handleSubmit }: { handleSubmit: (e: React.SubmitEvent<HTMLFormElement>) => void }) {
     return <Card
-        className="md:max-w-100 mx-auto max-w-80"
+        className="md:max-w-100 mx-auto max-w-80 border-t-2 border-primary"
     >
         <CardHeader>
             <CardTitle className="text-2xl mx-auto">
@@ -98,7 +118,7 @@ function StatusMessage({ status }: { status: { success: boolean, message: string
         animate={{ translateX: "0px" }}
         exit={{ translateX: "200px", opacity: 0 }}
         transition={{ duration: 0.8 }}
-        className="fixed top-15 right-4"
+        className="fixed top-20 right-4"
     >
         <Alert>
             {status.success && <CheckCircle2Icon style={{

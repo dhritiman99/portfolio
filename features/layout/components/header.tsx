@@ -24,8 +24,8 @@ export function Header() {
 	const scrolled = useScroll(10);
 	return (
 		<header
-			className={cn("sticky top-0 z-50 w-full border-transparent border-b", {
-				"border-border bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/50":
+			className={cn("sticky top-0  mx-7 z-50  border-transparent border-b-2 transition-all", {
+				"border-border bg-background/95 backdrop-blur-sm supports-backdrop-filter:bg-background/50 top-4 rounded-full":
 					scrolled,
 			})}
 		>
